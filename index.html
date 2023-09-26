@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="./resources/css/style.css" type="text/css" rel="stylesheet">    
+    <title>CSS selectors and specificity</title>
+  </head>
+  <body>
+    <main>
+      <section>
+        <h1>CSS selectors and specificity</h1>
+      </section>
+      <article>
+        <h2>Basic CSS Selectors</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Selector</th>
+              <th>Description</th>
+              <th>Syntax</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Universal</td>
+              <td>selects all elements of any type.</td>
+              <td class="syntax">(*)</td>
+            </tr>
+            <tr>
+              <td>Type</td>
+              <td>matches the type of the element in the HTML document.</td>
+              <td class="syntax">elementname</td>
+            </tr>
+            <tr>
+              <td>Class</td>
+              <td>matches elements based on the contents of their class attribute.</td>
+              <td class="syntax">.classname:</td>
+            </tr>
+            <tr>
+              <td>ID</td>
+              <td>matches an element based on the value of the element's id attribute.</td>
+              <td class="syntax">#idname</td>
+            </tr>
+            <tr>
+              <td>Attribute</td>
+              <td>matches elements based on the element having a given attribute explicitly set, with options for defining an attribute value or substring value match.</td>
+              <td class="syntax">[attr=value]</td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+      <section>
+        <h2>Specificity</h2>
+      </section>
+      <article>
+        <p class="definition"><span>Specificity</span> is the algorithm used by browsers to determine the CSS declaration that is the most 
+          relevant to an element, which in turn, determines the property value to apply to the element. 
+          The specificity algorithm calculates the weight of a CSS selector to determine which rule from competing 
+          CSS declarations gets applied to an element.</p>
+        <h2>Selector weight categories</h2>
+        <table class="specificity">
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Selectors</th>
+              <th>Example</th>
+              <th>Weight Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1 -->
+            <tr>
+              <td>ID column</td>
+              <td>ID selectors</td>
+              <td class="example">#example</td>
+              <td>1-0-0</td>
+            </tr>
+            <!-- Row 2 -->
+            <tr>
+              <td rowspan="3">CLASS column</td>
+              <td>CLASS selectors</td>
+              <td class="example">.myClass</td>
+              <td rowspan="3">0-1-0</td>
+            </tr>  
+            <tr>
+              <td >ATTRIBUTE selectors</td>
+              <td class="example">[type="radio"]<br/>[lang|="fr"]</td>
+            </tr>
+            <tr>
+              <td>PSEUDO-CLASSES</td>
+              <td class="example">:hover<br/>:nth-&nbsp;of-&nbsp;type(3n)<br/>:required</td>
+            </tr>
+            <!-- Row 3 -->
+            <tr>
+              <td rowspan="3">TYPE column</td>
+              <td>TYPE selectors</td>
+              <td class="example">&lt;p&gt;<br/>&lt;h1&gt;<br/>&lt;td&gt;</td>
+              <td rowspan="3">0-0-1</td>
+            </tr>
+            <tr>
+              <td>PSEUDO-ELEMENTS</td>
+              <td class="example">::before<br/>::placeholder</td>
+            </tr>  
+            <tr>
+              <td>OTHER selectors with double-colon notation</td>
+              <td></td>
+            </tr>    
+             <!-- Row 4 -->
+            <tr>
+              <td rowspan="2">NO VALUE</td>
+              <td>UNIVERSAL selector</td>
+              <td class="example">(*)</td>
+              <td rowspan="2">do not impact the specificity weight value</td>
+              </tr>
+              <tr>
+                <td>PSEUDO_CLASS</td>
+                <td class="example">:where</td>
+              </tr>
+          </tbody>
+        </table>
+      </article>
+    </main>
+  </body>
+</html>
